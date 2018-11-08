@@ -1,8 +1,10 @@
-<h1>New Recipe</h1>
+<h1>Please add the recipe title and instructions below</h1>
+<h2>You will then be required to create an ingredient list</h2>
 
 <%= form_for @recipe do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
+  <%= f.label :instructions %>
   <%= f.text_field :instructions %>
-  <%= f.submit "Create Recipe and add ingredients" %>
+  <%= f.submit "Create Recipe" %>
 <%end%>
