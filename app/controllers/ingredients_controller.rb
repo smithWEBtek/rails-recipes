@@ -8,11 +8,14 @@ class IngredientsController < ApplicationController
   end
 
   def destroy
-
-  end
-
-private
-  def ingredient_params
-    params.require(:ingredient).permit(:name, :quantity)
+    @recipe = Recipe.find(params[:recipe_id])
+    @ingredient = @recipe.ingredients.find(params[:id])
+    @ingredient.destroy
+    redirect_to recipe_path(@recipe)
   end
 end
+
+  private
+    def ingredient_params
+      params.require(:ingredient).permit(:name, :quantity)
+    end
