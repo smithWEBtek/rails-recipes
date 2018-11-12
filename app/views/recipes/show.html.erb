@@ -1,6 +1,6 @@
 <h1><%= @recipe.title %></h1>
 <h5><%= @recipe.instructions %></h5>
-<h5>Ingredients<%= @recipe.ingredients.count %></h5>
+<h5>Ingredients <%= @recipe.ingredients.count %></h5>
 <%= render @recipe.ingredients %>
 <h5>Add Ingredients</h5>
 <%= render 'ingredients/form' %>
