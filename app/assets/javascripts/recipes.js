@@ -4,9 +4,10 @@ $(() => {
 
 const bindClickHandlers = () => {
   $('#home_button').on('click', (e) => {
-    console.log('hello')
     e.preventDefault()
-
+    fetch(`/recipes.json`)
+    .then(res => res.json())
+    .then(data => data)
   })
 }
 
