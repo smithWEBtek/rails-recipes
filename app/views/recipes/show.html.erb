@@ -6,4 +6,4 @@
 <%= render 'ingredients/form' %>
 <%= link_to "Edit", edit_recipe_path(@recipe), class: "edit_button" %>
 <%= link_to "Delete", recipe_path(@recipe), method: :delete, class: "delete_button" %>
-<%= link_to "Home", recipes_path, class: "home_button" %>
+<%= link_to "Home", recipes_path, id: "home_button" %>

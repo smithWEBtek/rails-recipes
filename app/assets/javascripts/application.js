@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require recipes
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks

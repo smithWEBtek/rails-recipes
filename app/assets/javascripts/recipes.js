@@ -3,7 +3,7 @@ $(() => {
 })
 
 const bindClickHandlers = () => {
-  $('.home_button').on('click', (e) => {
+  $('#home_button').on('click', (e) => {
     e.preventDefault()
     console.log('hello')
   })
