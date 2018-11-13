@@ -3,7 +3,10 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all.order("title ASC")
-    render json: @recipes
+    respond_to do |f|
+      f.html
+      f.json {render json: @recipes}
+    end
   end
 
   def new
