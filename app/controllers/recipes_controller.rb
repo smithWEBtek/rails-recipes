@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all.order("title ASC")
+    # render 'recipes', :layout => false
     respond_to do |f|
       f.html
       f.json {render json: @recipes}
