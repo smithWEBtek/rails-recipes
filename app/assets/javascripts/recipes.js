@@ -31,7 +31,7 @@ class Recipe {
     formatIndex(recipe) {
         console.log("recipe: ", recipe)
 
-        let recipeHtml = (`<a href="/recipes/${this.id}"><h1>${recipe.title}</h1>`)
+        let recipeHtml = (`<a href="/recipes/${this.id} class="show_link"><h1>${recipe.title}</h1></a>`)
         return recipeHtml
     }
 }
