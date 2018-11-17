@@ -23,17 +23,15 @@ const bindClickHandlers = () => {
 class Recipe {
     constructor(id, title, instructions, ingredients) {
         this.id = id,
-            this.title = title,
-            this.instructions = instructions,
-            this.ingredients = ingredients || []
+        this.title = title,
+        this.instructions = instructions,
+        this.ingredients = ingredients || []
     }
 
     formatIndex(recipe) {
         console.log("recipe: ", recipe)
 
-        let recipeHtml = (`
-        <h1>${recipe.title}</h1>
-        `)
+        let recipeHtml = (`<h1>${recipe.title}</h1>`)
         return recipeHtml
     }
 }
