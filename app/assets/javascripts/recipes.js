@@ -18,6 +18,16 @@ const bindClickHandlers = () => {
                })
           })
     })
+
+    $(document).on('click', ".show_link", function(e) {
+      e.preventDefault()
+      let id = $(this).attr('data-id')
+      fetch(`/recipes/${id}.json`)
+      .then(response => response.json())
+      .then(recipe => {
+        console.log(recipe)
+      })
+  })
 }
 
 class Recipe {
@@ -31,7 +41,7 @@ class Recipe {
     formatIndex(recipe) {
         console.log("recipe: ", recipe)
 
-        let recipeHtml = (`<a href="/recipes/${this.id} class="show_link"><h1>${recipe.title}</h1></a>`)
+        let recipeHtml = (`<a href="/recipes/${this.id}" data-id="${this.id}" class="show_link"><h1>${recipe.title}</h1></a>`)
         return recipeHtml
     }
 }
