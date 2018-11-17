@@ -15,8 +15,8 @@ const bindClickHandlers = () => {
                     let newRecipe = new Recipe(recipe)
                     let recipeHtml = newRecipe.formatIndex(recipe)
                     $("div.recipes").append(recipeHtml)
-                })
-            })
+               })
+          })
     })
 }
 
