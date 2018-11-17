@@ -1,34 +1,41 @@
 $(() => {
-  bindClickHandlers()
+    bindClickHandlers()
 })
 
 const bindClickHandlers = () => {
-  $("a.home_button").on('click', (e) => {
-    e.preventDefault()
-    fetch(`/recipes.json`)
-    .then(response => response.json())
-    .then(recipes => {
-      $("div.recipes ol").html("")
-        recipes.forEach(recipe => {
-          let newRecipe = new Recipe(recipe)
-          let recipeHtml = newRecipe.formatIndex()
-          $("div.recipes").append(recipeHtml)
-        })
+    $("a.home_button").on('click', (e) => {
+        e.preventDefault()
+        fetch(`/recipes.json`)
+            .then(response => response.json())
+            .then(recipes => {
+                console.log("here are recipes: ", recipes);
+
+                $("div.recipes ol").html("")
+                recipes.forEach(recipe => {
+                    let newRecipe = new Recipe(recipe)
+                    let recipeHtml = newRecipe.formatIndex(recipe)
+                    $("div.recipes").append(recipeHtml)
+                })
+            })
     })
-  })
 }
 
-function Recipe(id, title, instructions){
-  this.id = id
-  this.title = title
-  this.instructions = instructions
-}
+class Recipe {
+    constructor(id, title, instructions, ingredients) {
+        this.id = id,
+            this.title = title,
+            this.instructions = instructions,
+            this.ingredients = ingredients || []
+    }
 
-Recipe.prototype.formatIndex = function() {
-  let recipeHtml = `
-  <h1>${this.title}</h1>
-  `
-  return recipeHtml
+    formatIndex(recipe) {
+        console.log("recipe: ", recipe)
+
+        let recipeHtml = (`
+        <h1>${recipe.title}</h1>
+        `)
+        return recipeHtml
+    }
 }
 // Cernan
 
