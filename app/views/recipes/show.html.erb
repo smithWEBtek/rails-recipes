@@ -4,10 +4,15 @@
 </div>
 
 <h1><%= @recipe.title %></h1>
+
+<div>
+  <%= button_tag 'Previous', class: 'js-prev', data: {id: @recipe.id} %>
+  <%= button_tag 'Next', class: 'js-next', data: {id: @recipe.id} %>
+</div>
+
 <h5><%= @recipe.instructions %></h5>
 <h5>Ingredients <%= @recipe.ingredients.count %></h5>
 <%= render @recipe.ingredients %>
-<%= button_tag 'Next', class: 'js-next', data: {id: @recipe.id} %>
 
 <h5>Add Ingredients</h5>
 <%= render 'ingredients/form' %>
