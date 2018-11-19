@@ -10,12 +10,13 @@
   <%= button_tag 'Next', class: 'js-next', data: {id: @recipe.id} %>
 </div>
 
+<%= link_to "Edit", edit_recipe_path(@recipe), class: "edit_button" %>
+<%= link_to "Delete", recipe_path(@recipe), method: :delete, class: "delete_button" %>
+<%= link_to "Home", recipes_path, class: "home_button" %>
+
 <h5><%= @recipe.instructions %></h5>
 <h5>Ingredients <%= @recipe.ingredients.count %></h5>
 <%= render @recipe.ingredients %>
 
 <h5>Add Ingredients</h5>
 <%= render 'ingredients/form' %>
-<%= link_to "Edit", edit_recipe_path(@recipe), class: "edit_button" %>
-<%= link_to "Delete", recipe_path(@recipe), method: :delete, class: "delete_button" %>
-<%= link_to "Home", recipes_path, class: "home_button" %>

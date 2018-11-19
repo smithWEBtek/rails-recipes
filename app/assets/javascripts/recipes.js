@@ -53,7 +53,7 @@ class Recipe {
     formatShow(recipe) {
       let recipeHtml = `
       <h3>${this.title}</h3>
-      <button class="next-post">Next</button>
+      <button class="next-recipe">Next</button>
       `
       return recipeHtml
     }
