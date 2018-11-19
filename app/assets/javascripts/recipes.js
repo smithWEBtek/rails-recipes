@@ -28,6 +28,11 @@ const bindClickHandlers = () => {
         console.log(recipe)
       })
   })
+
+  $(document).on('click', 'next-recipe', function() {
+    let id = $(this).attr('data-id')
+    fetch(`recipes/${id}/next`)
+  })
 }
 
 class Recipe {
@@ -44,52 +49,12 @@ class Recipe {
         let recipeHtml = (`<a href="/recipes/${this.id}" data-id="${this.id}" class="show_link"><h1>${recipe.title}</h1></a>`)
         return recipeHtml
     }
+
+    formatShow(recipe) {
+      let recipeHtml = `
+      <h3>${this.title}</h3>
+      <button class="next-post">Next</button>
+      `
+      return recipeHtml
+    }
 }
-// Cernan
-
-// Recipe.prototype.formatIndex = function(){
-//     return "<li id='recipe-"+ this.id +"'><strong>" + this.title + ": </strong>" + this.instructions
-//   }
-// Jenn
-
-// $(function(){
-//   $("a.home_button").on('click', function(e){
-// //       $.get(this.href).success(function(data){
-// //         $("div.recipes").html(data)
-// //       })
-// //       e.preventDefault();
-// //     })
-// //   })
-// // Avi
-//
-// $(function(){
-//   $("a.home_button").on('click', function(e){
-//     $.ajax({
-//       url: this.href,
-//       dataType: 'script'
-//     })
-//     e.preventDefault();
-//   })
-// })
-//     })
-//     // $.get(this.href).success(function(json){
-//     //   var $ol = $("div.recipes ol")
-//     //   $ol.html("")
-//     //   json.forEach(function(recipe){
-//     //     $ol.append("<li>" + recipe.title + "</li>");
-//     //   })
-//     })
-//     e.preventDefault();
-//   })
-// })
-
-// function nextRecipe() {
-//   var nextId = parseInt($(".js-next").attr("data-id")) + 1
-//   updateView(nextId)
-// }
-//
-// function previousRecipe() {
-//   var prevId = parseInt($(".js-previous").attr("data-id")) - 1
-//   updateView(prevId)
-// }
-// Jenn

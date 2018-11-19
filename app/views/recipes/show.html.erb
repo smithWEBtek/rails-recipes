@@ -7,6 +7,8 @@
 <h5><%= @recipe.instructions %></h5>
 <h5>Ingredients <%= @recipe.ingredients.count %></h5>
 <%= render @recipe.ingredients %>
+<%= button_tag 'Next', class: 'js-next', data: {id: @recipe.id} %>
+
 <h5>Add Ingredients</h5>
 <%= render 'ingredients/form' %>
 <%= link_to "Edit", edit_recipe_path(@recipe), class: "edit_button" %>
