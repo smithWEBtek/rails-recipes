@@ -9,7 +9,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+	<body>
+	
+		<%= link_to "Home", root_path %> |
+		<%= link_to "New Recipe", new_recipe_path %> |
+		<% if @recipe %>
+			<%= link_to "New Ingredient", new_recipe_ingredient_path(@recipe) %> 
+		<% end %>
+
+		<hr>
     <%= yield %>
   </body>
 </html>
